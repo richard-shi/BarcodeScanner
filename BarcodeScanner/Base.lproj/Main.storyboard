@@ -40,7 +40,6 @@
                     <connections>
                         <outlet property="barcodeResultButton" destination="Um5-U9-57i" id="GNW-KV-Xga"/>
                         <outlet property="barcodeToolbar" destination="hqi-fg-AV1" id="UrW-vC-syr"/>
-                        <outlet property="mainView" destination="8bC-Xf-vdC" id="zUq-Ry-brR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -15,7 +15,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     let selectionBorderWidth:CGFloat = 5
     let pointerSize:CGFloat = 20
     
-    let barCodeTypes = [AVMetadataObjectTypeUPCECode,
+    let barcodeTypes = [AVMetadataObjectTypeUPCECode,
         AVMetadataObjectTypeCode39Code,
         AVMetadataObjectTypeCode39Mod43Code,
         AVMetadataObjectTypeEAN13Code,
@@ -33,7 +33,6 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     
     // @IBOutlet weak var labelBarcodeResult: UILabel!
     @IBOutlet var barcodeResultButton: UIBarButtonItem!
-    @IBOutlet var mainView: UIView!
     @IBOutlet weak var barcodeToolbar: UIToolbar!
     
     //MARK: Functions
@@ -61,35 +60,35 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
         }
         
         //Creates capture session and adds input
-        self.session = AVCaptureSession()
-        self.session?.addInput(captureDeviceInput as! AVCaptureInput)
+        session = AVCaptureSession()
+        session?.addInput(captureDeviceInput as! AVCaptureInput)
         
-        //Adds metadata output to session
+        //Get metadata output from session
         let metadataOutput = AVCaptureMetadataOutput()
-        self.session?.addOutput(metadataOutput)
+        session?.addOutput(metadataOutput)
         metadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
-        metadataOutput.metadataObjectTypes = barCodeTypes
+        metadataOutput.metadataObjectTypes = barcodeTypes
         
         //Add the video preview layer to the main view
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
         videoPreviewLayer?.frame = self.view.bounds
         videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-        self.view.layer.addSublayer(videoPreviewLayer!)
+        view.layer.addSublayer(videoPreviewLayer!)
         
         //Run session
-        self.session?.startRunning()
+        session?.startRunning()
         
         //creates the selection box
-        self.selectionView = UIView()
-        self.selectionView?.autoresizingMask = [.FlexibleTopMargin, .FlexibleBottomMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
-        self.selectionView?.layer.borderColor = UIColor.redColor().CGColor
-        self.selectionView?.layer.borderWidth = selectionBorderWidth
-        self.selectionView?.frame = CGRectMake(0,0, pointerSize , pointerSize)
-        self.selectionView?.center = CGPointMake(CGRectGetMidX(mainView.bounds), CGRectGetMidY(mainView.bounds))
+        selectionView = UIView()
+        selectionView?.autoresizingMask = [.FlexibleTopMargin, .FlexibleBottomMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
+        selectionView?.layer.borderColor = UIColor.redColor().CGColor
+        selectionView?.layer.borderWidth = selectionBorderWidth
+        selectionView?.frame = CGRectMake(0,0, pointerSize , pointerSize)
+        selectionView?.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds))
         
         //Set up toolbar
         self.view.bringSubviewToFront(barcodeToolbar)
-        self.barcodeResultButton.enabled = false
+        barcodeResultButton.enabled = false
         
         //adds the selection box to main View
         self.view.addSubview(selectionView!)
@@ -108,6 +107,9 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
         let barcodeMessage:String? = "Barcode: " + sender.title! ?? ""
         let actionSheetMenu = UIAlertController(title: barcodeMessage, message: nil, preferredStyle: .ActionSheet)
         
+        //Pauses the video capture session
+        session?.stopRunning()
+        
         //Adds menu item to follow link if valid link
         if validateURL(sender.title!){
             let followLinkAction = UIAlertAction(title: "Follow Link", style: .Default, handler: {
@@ -115,6 +117,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
                 if let url = sender.title{
                     UIApplication.sharedApplication().openURL(NSURL(string: url)!)  //Opens link in browser
                 }
+                self.session?.startRunning()
             })
             actionSheetMenu.addAction(followLinkAction)
         }
@@ -123,13 +126,14 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
         let copyAction = UIAlertAction(title: "Copy to Clipboard", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             UIPasteboard.generalPasteboard().string = sender.title
+            self.session?.startRunning()
         })
         actionSheetMenu.addAction(copyAction)
         
         //Cancels menu
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
             (alert: UIAlertAction!) -> Void in
-            //Does nothing
+            self.session?.startRunning()
         })
         actionSheetMenu.addAction(cancelAction)
         
@@ -143,7 +147,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
             
             //Draw and center pointer
             selectionView?.frame = CGRectMake(0,0, pointerSize , pointerSize)
-            selectionView?.center = CGPointMake(CGRectGetMidX(mainView.bounds), CGRectGetMidY(mainView.bounds))
+            selectionView?.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds))
             selectionView?.layer.borderColor = UIColor.redColor().CGColor
             
             //Reset result button
@@ -154,18 +158,20 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
         
         //Get each metadataObject and check if it is a barcode type
         let metadataMachineReadableCodeObject = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-        for barCodeType in barCodeTypes{
-            if metadataMachineReadableCodeObject.type == barCodeType {
-                let barCode = videoPreviewLayer?.transformedMetadataObjectForMetadataObject(metadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
+        for barcodeType in barcodeTypes{
+            if metadataMachineReadableCodeObject.type == barcodeType {
+                let barcode = videoPreviewLayer?.transformedMetadataObjectForMetadataObject(metadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
                 
                 //Set selection to the barcode's bounds
-                selectionView?.frame = barCode.bounds;
+                selectionView?.frame = barcode.bounds;
                 selectionView?.layer.borderColor = UIColor.greenColor().CGColor
                 
                 //Sets the result button text to the value of the bar code object
                 if metadataMachineReadableCodeObject.stringValue != nil {
                     barcodeResultButton.title = metadataMachineReadableCodeObject.stringValue
                     barcodeResultButton.enabled = true
+                } else{
+                    barcodeResultButton.title = "Barcode not recognised"
                 }
             }
             
