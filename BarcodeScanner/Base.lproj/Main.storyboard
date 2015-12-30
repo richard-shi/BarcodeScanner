@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,38 +17,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Code Detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZ1-TB-n4l">
-                                <rect key="frame" x="20" y="559" width="560" height="21"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
-                                </accessibility>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="JTH-Db-ipb" appends="YES" id="3lo-6M-vNl"/>
-                                </connections>
-                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqi-fg-AV1">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8p7-up-794"/>
+                                    <barButtonItem title="No Barcode detected" style="plain" id="Um5-U9-57i">
+                                        <connections>
+                                            <action selector="DisplayBarcodeMenu:" destination="BYZ-38-t0r" id="U4j-aR-TJo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="UWU-Bc-wQh"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DZ1-TB-n4l" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="E42-z4-N3E"/>
-                            <constraint firstItem="DZ1-TB-n4l" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="W6d-FV-l3k"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DZ1-TB-n4l" secondAttribute="bottom" constant="20" id="g1N-Fq-Hi6"/>
+                            <constraint firstItem="hqi-fg-AV1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Uvk-Yh-tj6"/>
+                            <constraint firstAttribute="trailing" secondItem="hqi-fg-AV1" secondAttribute="trailing" id="e3b-ip-hdF"/>
+                            <constraint firstItem="hqi-fg-AV1" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="nhB-F2-PI8"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="labelBarcodeResult" destination="DZ1-TB-n4l" id="h3m-6k-ZfL"/>
+                        <outlet property="barcodeResultButton" destination="Um5-U9-57i" id="GNW-KV-Xga"/>
+                        <outlet property="barcodeToolbar" destination="hqi-fg-AV1" id="UrW-vC-syr"/>
                         <outlet property="mainView" destination="8bC-Xf-vdC" id="zUq-Ry-brR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="JTH-Db-ipb">
-                    <connections>
-                        <action selector="OpenURLInBrowser:" destination="BYZ-38-t0r" id="8A1-YK-TRT"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="160" y="429"/>
         </scene>
