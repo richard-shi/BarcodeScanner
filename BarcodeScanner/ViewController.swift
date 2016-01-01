@@ -116,17 +116,18 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     
     //MARK: Actions
     @IBAction func DisplayBarcodeMenu(sender: UIBarButtonItem) {
-        let barcodeMessage:String? = "Barcode: " + sender.title! ?? ""
-        let actionSheetMenu = UIAlertController(title: barcodeMessage, message: nil, preferredStyle: .ActionSheet)
+        let type = sender.title?.componentsSeparatedByString(": ").first
+        let value = sender.title?.componentsSeparatedByString(": ").last
+        let actionSheetMenu = UIAlertController(title: "Type: \(type!)", message: value!, preferredStyle: .ActionSheet)
         
         //Pauses the video capture session
         session?.stopRunning()
         
         //Adds menu item to follow link if valid link
-        if validateURL(sender.title!){
+        if validateURL(value!){
             let followLinkAction = UIAlertAction(title: "Follow Link", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in
-                if let url = sender.title{
+                if let url = value{
                     UIApplication.sharedApplication().openURL(NSURL(string: url)!)  //Opens link in browser
                 }
                 self.resetToDefault()
@@ -138,7 +139,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
         //Copies text to clipboard
         let copyAction = UIAlertAction(title: "Copy to Clipboard", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            UIPasteboard.generalPasteboard().string = sender.title
+            UIPasteboard.generalPasteboard().string = value!
             self.resetToDefault()
             self.session?.startRunning()
         })
@@ -175,7 +176,8 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
                 
                 //Sets the result button text to the value of the bar code object
                 if metadataMachineReadableCodeObject.stringValue != nil {
-                    barcodeResultButton.title = metadataMachineReadableCodeObject.stringValue
+                    let type = metadataMachineReadableCodeObject.type.componentsSeparatedByString(".").last
+                    barcodeResultButton.title = type! + ": " + metadataMachineReadableCodeObject.stringValue
                     barcodeResultButton.enabled = true
                 } else{
                     barcodeResultButton.title = "Barcode not recognised"
@@ -185,4 +187,3 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
         }
     }
 }
-

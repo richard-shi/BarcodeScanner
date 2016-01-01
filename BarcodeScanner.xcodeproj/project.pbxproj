@@ -392,6 +392,7 @@
 				EF59D97B1C3318D80015FB2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EF59D97C1C3318D80015FB2B /* Build configuration list for PBXNativeTarget "BarcodeScannerTests" */ = {
 			isa = XCConfigurationList;
@@ -400,6 +401,7 @@
 				EF59D97E1C3318D80015FB2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

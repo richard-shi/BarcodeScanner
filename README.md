@@ -19,4 +19,3 @@ This app can recognise and scan these types of codes:
 
 ### Options
 Barcode values can be copied to clipboard, and opened in Safari if the value is a valid URL
-
