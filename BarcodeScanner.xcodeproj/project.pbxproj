@@ -13,6 +13,7 @@
 		EF59D9671C3318D80015FB2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF59D9661C3318D80015FB2B /* Assets.xcassets */; };
 		EF59D96A1C3318D80015FB2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF59D9681C3318D80015FB2B /* LaunchScreen.storyboard */; };
 		EF59D9751C3318D80015FB2B /* BarcodeScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF59D9741C3318D80015FB2B /* BarcodeScannerTests.swift */; };
+		EF8060CC1C37285C00C50E47 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = EF8060CB1C37285C00C50E47 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		EF59D9701C3318D80015FB2B /* BarcodeScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarcodeScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF59D9741C3318D80015FB2B /* BarcodeScannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerTests.swift; sourceTree = "<group>"; };
 		EF59D9761C3318D80015FB2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF8060CB1C37285C00C50E47 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		EF59D9531C3318D80015FB2B = {
 			isa = PBXGroup;
 			children = (
+				EF8060CB1C37285C00C50E47 /* README.md */,
 				EF59D95E1C3318D80015FB2B /* BarcodeScanner */,
 				EF59D9731C3318D80015FB2B /* BarcodeScannerTests */,
 				EF59D95D1C3318D80015FB2B /* Products */,
@@ -199,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF8060CC1C37285C00C50E47 /* README.md in Sources */,
 				EF59D9621C3318D80015FB2B /* ViewController.swift in Sources */,
 				EF59D9601C3318D80015FB2B /* AppDelegate.swift in Sources */,
 			);

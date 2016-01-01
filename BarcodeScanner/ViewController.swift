@@ -15,7 +15,11 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     let selectionBorderWidth:CGFloat = 5
     let pointerSize:CGFloat = 20
     
-    let barcodeTypes = [AVMetadataObjectTypeUPCECode,
+    let barcodeTypes = [
+        AVMetadataObjectTypeDataMatrixCode,
+        AVMetadataObjectTypeInterleaved2of5Code,
+        AVMetadataObjectTypeITF14Code,
+        AVMetadataObjectTypeUPCECode,
         AVMetadataObjectTypeCode39Code,
         AVMetadataObjectTypeCode39Mod43Code,
         AVMetadataObjectTypeEAN13Code,

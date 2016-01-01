@@ -16,6 +16,14 @@ This app can recognise and scan these types of codes:
 * PDF417
 * Aztec
 * Quick Response
+* Data Matrix
+* Interleaved 2 of 5
+* ITF14
 
 ### Options
 Barcode values can be copied to clipboard, and opened in Safari if the value is a valid URL
+
+# New in v1.1
+* Added Compatability for Data Matrix, Interleaved 2 of 5 and ITF14 codes
+* Barcode Scanner now displays the type of barcode
+* Several bug fixes
