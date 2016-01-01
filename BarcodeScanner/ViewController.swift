@@ -95,11 +95,23 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
         self.view.bringSubviewToFront(selectionView!)
     }
     
+    //Validates the URL to see if it is opennable with any application on the device
     func validateURL(url:String)->Bool{
         if let testURL = NSURL(string: url){
             return UIApplication.sharedApplication().canOpenURL(testURL)
         }
         return false
+    }
+    
+    //resets view to default
+    func resetToDefault(){
+        selectionView?.frame = CGRectMake(0,0, pointerSize , pointerSize)
+        selectionView?.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds))
+        selectionView?.layer.borderColor = UIColor.redColor().CGColor
+        
+        //Reset result button
+        barcodeResultButton.title = "No Barcode detected"
+        barcodeResultButton.enabled = false
     }
     
     //MARK: Actions
@@ -117,6 +129,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
                 if let url = sender.title{
                     UIApplication.sharedApplication().openURL(NSURL(string: url)!)  //Opens link in browser
                 }
+                self.resetToDefault()
                 self.session?.startRunning()
             })
             actionSheetMenu.addAction(followLinkAction)
@@ -126,6 +139,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
         let copyAction = UIAlertAction(title: "Copy to Clipboard", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             UIPasteboard.generalPasteboard().string = sender.title
+            self.resetToDefault()
             self.session?.startRunning()
         })
         actionSheetMenu.addAction(copyAction)
@@ -133,6 +147,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
         //Cancels menu
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
             (alert: UIAlertAction!) -> Void in
+            self.resetToDefault()
             self.session?.startRunning()
         })
         actionSheetMenu.addAction(cancelAction)
@@ -144,15 +159,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     //MARK: AVCaptureMetadataOutputObjectsDelegate
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         if metadataObjects == nil || metadataObjects.count == 0 {
-            
-            //Draw and center pointer
-            selectionView?.frame = CGRectMake(0,0, pointerSize , pointerSize)
-            selectionView?.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds))
-            selectionView?.layer.borderColor = UIColor.redColor().CGColor
-            
-            //Reset result button
-            barcodeResultButton.title = "No Barcode detected"
-            barcodeResultButton.enabled = false
+            self.resetToDefault()
             return
         }
         
