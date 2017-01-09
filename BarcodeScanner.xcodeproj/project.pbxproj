@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EF59D9601C3318D80015FB2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF59D95F1C3318D80015FB2B /* AppDelegate.swift */; };
-		EF59D9621C3318D80015FB2B /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF59D9611C3318D80015FB2B /* ScannerViewController.swift */; };
 		EF59D9651C3318D80015FB2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF59D9631C3318D80015FB2B /* Main.storyboard */; };
 		EF59D9671C3318D80015FB2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF59D9661C3318D80015FB2B /* Assets.xcassets */; };
 		EF59D96A1C3318D80015FB2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF59D9681C3318D80015FB2B /* LaunchScreen.storyboard */; };
@@ -17,6 +16,7 @@
 		EF95D2271E23F6D7003BB7E8 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D2261E23F6D7003BB7E8 /* HistoryTableViewController.swift */; };
 		EF95D2291E24055A003BB7E8 /* CodeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D2281E24055A003BB7E8 /* CodeItem.swift */; };
 		EF95D22B1E24242A003BB7E8 /* CaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D22A1E24242A003BB7E8 /* CaptureDelegate.swift */; };
+		EF95D2311E242F8C003BB7E8 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D2301E242F8C003BB7E8 /* ScannerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +32,6 @@
 /* Begin PBXFileReference section */
 		EF59D95C1C3318D80015FB2B /* BarcodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarcodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF59D95F1C3318D80015FB2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EF59D9611C3318D80015FB2B /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		EF59D9641C3318D80015FB2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF59D9661C3318D80015FB2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF59D9691C3318D80015FB2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +42,7 @@
 		EF95D2261E23F6D7003BB7E8 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		EF95D2281E24055A003BB7E8 /* CodeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeItem.swift; sourceTree = "<group>"; };
 		EF95D22A1E24242A003BB7E8 /* CaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureDelegate.swift; sourceTree = "<group>"; };
+		EF95D2301E242F8C003BB7E8 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +99,7 @@
 		EF95D22C1E24257D003BB7E8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EF59D9611C3318D80015FB2B /* ScannerViewController.swift */,
+				EF95D2301E242F8C003BB7E8 /* ScannerViewController.swift */,
 				EF95D2261E23F6D7003BB7E8 /* HistoryTableViewController.swift */,
 			);
 			name = ViewControllers;
@@ -219,10 +219,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF95D2311E242F8C003BB7E8 /* ScannerViewController.swift in Sources */,
 				EF8060CC1C37285C00C50E47 /* README.md in Sources */,
 				EF95D2291E24055A003BB7E8 /* CodeItem.swift in Sources */,
 				EF95D2251E23F6B5003BB7E8 /* DataModel.swift in Sources */,
-				EF59D9621C3318D80015FB2B /* ScannerViewController.swift in Sources */,
 				EF59D9601C3318D80015FB2B /* AppDelegate.swift in Sources */,
 				EF95D22B1E24242A003BB7E8 /* CaptureDelegate.swift in Sources */,
 				EF95D2271E23F6D7003BB7E8 /* HistoryTableViewController.swift in Sources */,
