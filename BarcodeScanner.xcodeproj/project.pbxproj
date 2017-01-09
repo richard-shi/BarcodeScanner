@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		EF59D9601C3318D80015FB2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF59D95F1C3318D80015FB2B /* AppDelegate.swift */; };
-		EF59D9621C3318D80015FB2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF59D9611C3318D80015FB2B /* ViewController.swift */; };
+		EF59D9621C3318D80015FB2B /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF59D9611C3318D80015FB2B /* ScannerViewController.swift */; };
 		EF59D9651C3318D80015FB2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF59D9631C3318D80015FB2B /* Main.storyboard */; };
 		EF59D9671C3318D80015FB2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF59D9661C3318D80015FB2B /* Assets.xcassets */; };
 		EF59D96A1C3318D80015FB2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF59D9681C3318D80015FB2B /* LaunchScreen.storyboard */; };
-		EF59D9751C3318D80015FB2B /* BarcodeScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF59D9741C3318D80015FB2B /* BarcodeScannerTests.swift */; };
 		EF8060CC1C37285C00C50E47 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = EF8060CB1C37285C00C50E47 /* README.md */; };
+		EF95D2251E23F6B5003BB7E8 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D2241E23F6B5003BB7E8 /* DataModel.swift */; };
+		EF95D2271E23F6D7003BB7E8 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D2261E23F6D7003BB7E8 /* HistoryTableViewController.swift */; };
+		EF95D2291E24055A003BB7E8 /* CodeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D2281E24055A003BB7E8 /* CodeItem.swift */; };
+		EF95D22B1E24242A003BB7E8 /* CaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D22A1E24242A003BB7E8 /* CaptureDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,15 +32,17 @@
 /* Begin PBXFileReference section */
 		EF59D95C1C3318D80015FB2B /* BarcodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarcodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF59D95F1C3318D80015FB2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EF59D9611C3318D80015FB2B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EF59D9611C3318D80015FB2B /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		EF59D9641C3318D80015FB2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF59D9661C3318D80015FB2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF59D9691C3318D80015FB2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF59D96B1C3318D80015FB2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF59D9701C3318D80015FB2B /* BarcodeScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarcodeScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF59D9741C3318D80015FB2B /* BarcodeScannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerTests.swift; sourceTree = "<group>"; };
-		EF59D9761C3318D80015FB2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF8060CB1C37285C00C50E47 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EF95D2241E23F6B5003BB7E8 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		EF95D2261E23F6D7003BB7E8 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		EF95D2281E24055A003BB7E8 /* CodeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeItem.swift; sourceTree = "<group>"; };
+		EF95D22A1E24242A003BB7E8 /* CaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +68,6 @@
 			children = (
 				EF8060CB1C37285C00C50E47 /* README.md */,
 				EF59D95E1C3318D80015FB2B /* BarcodeScanner */,
-				EF59D9731C3318D80015FB2B /* BarcodeScannerTests */,
 				EF59D95D1C3318D80015FB2B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,8 +84,10 @@
 		EF59D95E1C3318D80015FB2B /* BarcodeScanner */ = {
 			isa = PBXGroup;
 			children = (
+				EF95D22D1E2425A3003BB7E8 /* Data Model */,
+				EF95D22C1E24257D003BB7E8 /* ViewControllers */,
 				EF59D95F1C3318D80015FB2B /* AppDelegate.swift */,
-				EF59D9611C3318D80015FB2B /* ViewController.swift */,
+				EF95D22A1E24242A003BB7E8 /* CaptureDelegate.swift */,
 				EF59D9631C3318D80015FB2B /* Main.storyboard */,
 				EF59D9661C3318D80015FB2B /* Assets.xcassets */,
 				EF59D9681C3318D80015FB2B /* LaunchScreen.storyboard */,
@@ -90,13 +96,22 @@
 			path = BarcodeScanner;
 			sourceTree = "<group>";
 		};
-		EF59D9731C3318D80015FB2B /* BarcodeScannerTests */ = {
+		EF95D22C1E24257D003BB7E8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EF59D9741C3318D80015FB2B /* BarcodeScannerTests.swift */,
-				EF59D9761C3318D80015FB2B /* Info.plist */,
+				EF59D9611C3318D80015FB2B /* ScannerViewController.swift */,
+				EF95D2261E23F6D7003BB7E8 /* HistoryTableViewController.swift */,
 			);
-			path = BarcodeScannerTests;
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EF95D22D1E2425A3003BB7E8 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF95D2241E23F6B5003BB7E8 /* DataModel.swift */,
+				EF95D2281E24055A003BB7E8 /* CodeItem.swift */,
+			);
+			name = "Data Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,8 +220,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF8060CC1C37285C00C50E47 /* README.md in Sources */,
-				EF59D9621C3318D80015FB2B /* ViewController.swift in Sources */,
+				EF95D2291E24055A003BB7E8 /* CodeItem.swift in Sources */,
+				EF95D2251E23F6B5003BB7E8 /* DataModel.swift in Sources */,
+				EF59D9621C3318D80015FB2B /* ScannerViewController.swift in Sources */,
 				EF59D9601C3318D80015FB2B /* AppDelegate.swift in Sources */,
+				EF95D22B1E24242A003BB7E8 /* CaptureDelegate.swift in Sources */,
+				EF95D2271E23F6D7003BB7E8 /* HistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +233,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF59D9751C3318D80015FB2B /* BarcodeScannerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
