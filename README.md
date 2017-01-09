@@ -23,7 +23,6 @@ This app can recognise and scan these types of codes:
 ### Options
 Barcode values can be copied to clipboard, and opened in Safari if the value is a valid URL
 
-# New in v1.1
-* Added Compatibility for Data Matrix, Interleaved 2 of 5 and ITF14 codes
-* Barcode Scanner now displays the type of barcode
-* Several bug fixes
+# New in v1.2
+* Updated codebase to Swift 3
+* Removed Logo Placeholder
