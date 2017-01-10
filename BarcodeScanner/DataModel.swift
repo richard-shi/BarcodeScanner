@@ -7,6 +7,9 @@
 //
 
 class DataModel{
+    var codeItems = [CodeItem]()
+    
+    //Probably saving stuff here 
     
 }
 

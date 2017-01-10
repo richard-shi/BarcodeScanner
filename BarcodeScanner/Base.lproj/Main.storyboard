@@ -21,28 +21,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hqi-fg-AV1">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6w-RN-0eO">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="No Barcode detected" style="plain" id="Um5-U9-57i">
-                                        <connections>
-                                            <action selector="DisplayBarcodeMenu:" destination="BYZ-38-t0r" id="U4j-aR-TJo"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="History" id="vEv-fT-tqb"/>
                                 </items>
                             </toolbar>
+                            <view tag="666" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xWt-J6-z2Y">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="barcodeResultButton" destination="Um5-U9-57i" id="GNW-KV-Xga"/>
-                        <outlet property="barcodeToolbar" destination="hqi-fg-AV1" id="UrW-vC-syr"/>
+                        <outlet property="toolbar" destination="b6w-RN-0eO" id="pOp-tv-942"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="179" y="397"/>
+            <point key="canvasLocation" x="178.40000000000001" y="396.25187406296857"/>
         </scene>
         <!--History-->
         <scene sceneID="BD8-8p-cmv">
@@ -57,7 +57,7 @@
                                 <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DDi-M0-4hW" id="ya8-6T-GXd">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CodeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5o-i1-dy1">
@@ -78,7 +78,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="History" id="XqD-3n-QlF">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="gE6-2N-MTk"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="OpR-hM-jCO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="gE6-2N-MTk"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZm-Uc-QZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
