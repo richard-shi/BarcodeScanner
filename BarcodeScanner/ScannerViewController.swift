@@ -72,6 +72,47 @@ class ScannerViewController: UIViewController, HistoryViewControllerDelegate, Ca
         selectionView?.layer.borderColor = UIColor.red.cgColor
     }
     
+    func displayCodeMenu(type:String?, code:String?){
+        let codeType = type ?? "Invalid Code"
+        let codeValue = code ?? "Invalid Message"
+        
+        let codeMenu = UIAlertController(title: codeType, message: codeValue, preferredStyle: .actionSheet)
+        
+        //Pauses the video capture session
+        captureManager.session?.stopRunning()
+        
+        //Adds menu item to follow link if valid link
+        if validateURL(codeValue){
+            let followLink = UIAlertAction(title: "Follow Link", style: .default, handler: {
+                (alert: UIAlertAction!) -> Void in
+                    UIApplication.shared.openURL(URL(string: codeValue)!)  //Opens link in browser
+                    self.resetSelectionView()
+                    self.captureManager.session?.startRunning()
+            })
+            codeMenu.addAction(followLink)
+        }
+        
+        //Copies text to clipboard
+        let copy = UIAlertAction(title: "Copy to Clipboard", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            UIPasteboard.general.string = codeValue
+            self.resetSelectionView()
+            self.captureManager.session?.startRunning()
+        })
+        codeMenu.addAction(copy)
+        
+        //Cancels menu
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.resetSelectionView()
+            self.captureManager.session?.startRunning()
+        })
+        codeMenu.addAction(cancel)
+        
+        //Presents the Action Sheet Menu
+        present(codeMenu, animated: true, completion: nil)
+    }
+    
     //MARK: CaptureManagerDelegate
     func captureManager(_ manager: CaptureManager,
                         didDetect codeObject: AVMetadataMachineReadableCodeObject){
@@ -84,8 +125,18 @@ class ScannerViewController: UIViewController, HistoryViewControllerDelegate, Ca
         
 
         if codeObject.stringValue != nil {
-            let type = codeObject.type.components(separatedBy: ".").last
-          //  codeButton.title = type! + ": " + codeObject.stringValue
+            let codeType = codeObject.type.components(separatedBy: ".").last
+            let codeValue = codeObject.stringValue
+            
+//            print(codeType)
+//            print(codeValue)
+                        
+            //Add to history
+            let codeItem = CodeItem(content: codeValue!, type: codeType!)
+            dataModel.codeItems.append(codeItem)
+
+            //Display Action Menu
+            displayCodeMenu(type:codeType, code: codeValue)
         }
     }
     

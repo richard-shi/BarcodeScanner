@@ -15,8 +15,8 @@ class CodeItem{
     var timestamp:Date
     
     init(content:String, type:String, timestamp:Date){
-        self.type = content
-        self.content = type
+        self.type = type
+        self.content = content
         self.timestamp = timestamp
     }
     

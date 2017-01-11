@@ -15,27 +15,51 @@ protocol HistoryViewControllerDelegate: class {
 }
 
 class HistoryViewController: UITableViewController {
+    
     weak var delegate:HistoryViewControllerDelegate?
-    weak var dataModel:DataModel!
+    var dataModel:DataModel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+    //MARK: Table View Data Source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataModel.codeItems.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCodeItemCell", for: indexPath)
-        let item = dataModel.codeItems[indexPath.row]
+        let cell = makeCell(for: tableView)
         
-        let label = cell.viewWithTag(1000) as! UILabel
-        label.text = item.content
+        //Display code data
+        let item = dataModel.codeItems[indexPath.row]
+        cell.textLabel?.text = "\(item.type):\(item.content)"
+        
+        //Display code timestamp on subtitle
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        cell.detailTextLabel?.text = dateFormatter.string(from: item.timestamp)
         
         return cell
     }
     
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCellEditingStyle,
+                            forRowAt indexPath: IndexPath) {
+        dataModel.codeItems.remove(at: indexPath.row)
+        
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
+
+    
+    func makeCell(for tableView:UITableView)->UITableViewCell{
+        let cellIdentifier = "HistoryCell"
+        if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier){
+            return cell
+        } else{
+            return UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        }
+    }
+    
+    //MARK: Actions
     @IBAction func back(){
         delegate?.historyViewControllerDidReturn(self)
     }
