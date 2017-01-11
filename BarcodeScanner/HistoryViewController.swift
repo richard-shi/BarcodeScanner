@@ -29,7 +29,7 @@ class HistoryViewController: UITableViewController {
         
         //Display code data
         let item = dataModel.codeItems[indexPath.row]
-        cell.textLabel?.text = "\(item.type):\(item.content)"
+        cell.textLabel?.text = "\(item.type): \(item.content)"
         
         //Display code timestamp on subtitle
         let dateFormatter = DateFormatter()
