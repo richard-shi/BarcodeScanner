@@ -19,7 +19,7 @@ class ScannerViewController: UIViewController, HistoryViewControllerDelegate, Ca
     var selectionView:UIView!
     
     @IBOutlet weak var toolbar: UIToolbar!
-    @IBOutlet weak var codeButton: UIBarButtonItem!
+    //@IBOutlet weak var codeButton: UIBarButtonItem!
     
     override var prefersStatusBarHidden: Bool{
         get{
@@ -54,6 +54,16 @@ class ScannerViewController: UIViewController, HistoryViewControllerDelegate, Ca
         view.bringSubview(toFront: toolbar)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowHistory"{
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! HistoryViewController
+            
+            controller.dataModel = dataModel        //ugh
+            controller.delegate = self
+        }
+    }
+    
     //resets view to default
     func resetSelectionView(){
         selectionView?.frame = CGRect(x: 0,y: 0, width: 20 , height: 20)
@@ -75,7 +85,7 @@ class ScannerViewController: UIViewController, HistoryViewControllerDelegate, Ca
 
         if codeObject.stringValue != nil {
             let type = codeObject.type.components(separatedBy: ".").last
-            codeButton.title = type! + ": " + codeObject.stringValue
+          //  codeButton.title = type! + ": " + codeObject.stringValue
         }
     }
     
@@ -84,8 +94,8 @@ class ScannerViewController: UIViewController, HistoryViewControllerDelegate, Ca
     }
 
     //MARK: HistoryViewControllerDelegate
-    func historyViewControllerDidCancel(_ controller: HistoryViewController){
-        
+    func historyViewControllerDidReturn(_ controller: HistoryViewController){
+        dismiss(animated: true, completion: nil)
     }
     
     func historyViewController(_ controller: HistoryViewController,

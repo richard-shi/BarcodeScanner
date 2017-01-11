@@ -14,7 +14,7 @@
 		EF5B2E1D1E2549F300AF83DB /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D2301E242F8C003BB7E8 /* ScannerViewController.swift */; };
 		EF8060CC1C37285C00C50E47 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = EF8060CB1C37285C00C50E47 /* README.md */; };
 		EF95D2251E23F6B5003BB7E8 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D2241E23F6B5003BB7E8 /* DataModel.swift */; };
-		EF95D2271E23F6D7003BB7E8 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D2261E23F6D7003BB7E8 /* HistoryTableViewController.swift */; };
+		EF95D2271E23F6D7003BB7E8 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D2261E23F6D7003BB7E8 /* HistoryViewController.swift */; };
 		EF95D2291E24055A003BB7E8 /* CodeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D2281E24055A003BB7E8 /* CodeItem.swift */; };
 		EF95D22B1E24242A003BB7E8 /* CaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95D22A1E24242A003BB7E8 /* CaptureManager.swift */; };
 /* End PBXBuildFile section */
@@ -39,7 +39,7 @@
 		EF59D9701C3318D80015FB2B /* BarcodeScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarcodeScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8060CB1C37285C00C50E47 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EF95D2241E23F6B5003BB7E8 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		EF95D2261E23F6D7003BB7E8 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		EF95D2261E23F6D7003BB7E8 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		EF95D2281E24055A003BB7E8 /* CodeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeItem.swift; sourceTree = "<group>"; };
 		EF95D22A1E24242A003BB7E8 /* CaptureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureManager.swift; sourceTree = "<group>"; };
 		EF95D2301E242F8C003BB7E8 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		EF59D95E1C3318D80015FB2B /* BarcodeScanner */ = {
 			isa = PBXGroup;
 			children = (
-				EF95D2261E23F6D7003BB7E8 /* HistoryTableViewController.swift */,
+				EF95D2261E23F6D7003BB7E8 /* HistoryViewController.swift */,
 				EF95D2301E242F8C003BB7E8 /* ScannerViewController.swift */,
 				EF95D22A1E24242A003BB7E8 /* CaptureManager.swift */,
 				EF95D2241E23F6B5003BB7E8 /* DataModel.swift */,
@@ -209,7 +209,7 @@
 				EF95D2251E23F6B5003BB7E8 /* DataModel.swift in Sources */,
 				EF59D9601C3318D80015FB2B /* AppDelegate.swift in Sources */,
 				EF95D22B1E24242A003BB7E8 /* CaptureManager.swift in Sources */,
-				EF95D2271E23F6D7003BB7E8 /* HistoryTableViewController.swift in Sources */,
+				EF95D2271E23F6D7003BB7E8 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

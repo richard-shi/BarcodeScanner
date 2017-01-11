@@ -25,7 +25,11 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="History" id="vEv-fT-tqb"/>
+                                    <barButtonItem title="History" id="vEv-fT-tqb">
+                                        <connections>
+                                            <segue destination="fOD-JC-Qts" kind="presentation" identifier="ShowHistory" id="92I-2p-gv6"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <view tag="666" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xWt-J6-z2Y">
@@ -47,7 +51,7 @@
         <!--History-->
         <scene sceneID="BD8-8p-cmv">
             <objects>
-                <tableViewController id="X8v-aF-5bn" customClass="HistoryTableViewController" customModule="BarcodeScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="X8v-aF-5bn" customClass="HistoryViewController" customModule="BarcodeScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="PPR-KG-4CX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +64,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CodeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5o-i1-dy1">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5o-i1-dy1">
                                             <rect key="frame" x="8" y="11" width="326" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -78,8 +82,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="History" id="XqD-3n-QlF">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="OpR-hM-jCO"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="gE6-2N-MTk"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="OpR-hM-jCO">
+                            <connections>
+                                <action selector="back" destination="X8v-aF-5bn" id="l2C-3W-1O5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="edit" id="gE6-2N-MTk"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZm-Uc-QZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
